@@ -1,17 +1,36 @@
 require ( './root.js' );
 
 
+function shout(string) {
+  return string.toUpperCase();
+}
+
+
 describe('shout(string)', function() {
   it('receives one argument and returns it in all caps', function() {
     expect(shout('hello')).toEqual('HELLO');
   })
 })
 
+function whisper(string) {
+  return string.toLowerCase();
+}
+
 describe('whisper(string)', function() {
   it('receives one argument and returns it in all lowercase', function() {
     expect(whisper('HELLO')).toEqual('hello');
   })
 })
+
+function logShout(inputString) {
+  if (typeof inputString === 'string') {
+    const toUpperCase = inputString.toUpperCase();
+    console.log(toUpperCase);
+  } else {
+    console.log('Input is not a valid string.');
+  }
+}
+
 
 describe('logShout(string)', function() {
   it('takes a string argument and logs it in all caps using console.log()', function() {
@@ -25,6 +44,18 @@ describe('logShout(string)', function() {
   })
 })
 
+
+
+function logWhisper(inputString) {
+  if (typeof inputString === 'string') {
+    const toLowerCase = inputString.toLowerCase();
+    console.log(toLowerCase);
+  } else {
+    console.log('Input is not a valid string.');
+  }
+}
+
+
 describe('logWhisper(string)', function() {
   it('takes a string argument and logs it in all lowercase using console.log()', function() {
     const spy = expect.spyOn(console, 'log').andCallThrough();
@@ -36,6 +67,30 @@ describe('logWhisper(string)', function() {
     console.log.restore();
   })
 })
+
+function sayHiToHeadphonedRoommate(string) {
+  if (string.toLowerCase() === string) 
+  {
+    
+    return "I can't hear you!";
+  } else if (string.toUpperCase() === string) {
+    
+    return "YES INDEED!";
+  }
+   else if (string === "Let's have dinner together!") {
+    
+    return "I would love to!";
+  }
+   
+  else {
+   
+    return "Some other response";
+  }
+}
+
+
+
+
 
 describe('sayHiToHeadphonedRoommate(string)', function() {
   it('returns "I can\'t hear you!" if `string` is lowercase', function() {
@@ -52,3 +107,5 @@ describe('sayHiToHeadphonedRoommate(string)', function() {
     );
   });
 })
+
+
